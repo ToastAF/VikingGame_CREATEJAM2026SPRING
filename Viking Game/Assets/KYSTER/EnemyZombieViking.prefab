@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2300629210810612188}
   - component: {fileID: 3044696370479421682}
   - component: {fileID: 6850276746872135247}
+  - component: {fileID: -247344341022729445}
   m_Layer: 0
   m_Name: EnemyZombieViking
   m_TagString: Untagged
@@ -110,7 +111,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -194,5 +195,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   detectionRange: 22.18
-  attackRange: 1.2
   moveSpeed: 3
+--- !u!114 &-247344341022729445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225562852867793647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3403a42f195daa24eb9671ef638e42d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySweepAttack
+  attackRange: 2.5
+  radius: 2.5

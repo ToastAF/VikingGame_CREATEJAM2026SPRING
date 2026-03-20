@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySweepAttack : EnemyAttack
+public class SweepAttack : EnemyAttack
 {
     public float radius = 1.5f;
 
@@ -10,14 +10,22 @@ public class EnemySweepAttack : EnemyAttack
 
         foreach (var hit in hits)
         {
-            IDamageable dmg = hit.GetComponent<IDamageable>();
+          
+            if (!hit.CompareTag("Player")) continue;
 
-            if (dmg != null && hit.transform != transform)
+            IDamageable dmg = hit.GetComponent<IDamageable>();
+            if (dmg != null)
             {
                 dmg.TakeDamage(damage);
             }
         }
 
         Debug.Log("Sweep attack");
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
