@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             rb.gravityScale = 0f;
-            rb.rotation = 0f;
+            rb.freezeRotation = true;
         }
         Vector2 diff = targetPos - startPos;
         forwardDir = diff.sqrMagnitude > 0.0001f ? diff.normalized : Vector2.right;
@@ -60,6 +60,7 @@ public class Projectile : MonoBehaviour
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 rb.gravityScale = 0f;
                 rb.linearVelocity = forwardDir * daggerSpeed;
+                rb.freezeRotation = true;
             }
         }
     }

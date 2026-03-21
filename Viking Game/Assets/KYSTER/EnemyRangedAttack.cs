@@ -11,6 +11,8 @@ public class EnemyRangedAttack : EnemyAttack
     public bool daggerProjectile = false;
     [Tooltip("Speed of dagger projectiles when daggerProjectile is enabled")]
     public float daggerSpeed = 14f;
+    [Tooltip("Degrees to offset projectile sprite so its 'point' faces the flight direction")]
+    public float projectileRotationOffset = -45f;
 
     private bool isAttacking = false;
 
@@ -38,9 +40,15 @@ public class EnemyRangedAttack : EnemyAttack
         if (proj != null)
         {
             proj.arcHeight = arcHeight;
-                proj.Init(targetPos, damage, projectileTravelTime, hitLayers, daggerProjectile);
-                if (daggerProjectile)
-                    proj.daggerSpeed = daggerSpeed;
+            proj.Init(targetPos, damage, projectileTravelTime, hitLayers, daggerProjectile);
+            if (daggerProjectile)
+                proj.daggerSpeed = daggerSpeed;
+
+            // set rotation so the sprite points along flight direction using vector assignment
+            Vector2 dir = (targetPos - (Vector2)transform.position).normalized;
+            // Use transform.up so sprites that point 'up' face the direction; adjust with offset
+            projGO.transform.up = dir;
+            projGO.transform.Rotate(0f, 0f, projectileRotationOffset);
         }
 
         // Stop attacking næste frame
