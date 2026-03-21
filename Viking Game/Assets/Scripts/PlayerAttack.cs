@@ -10,9 +10,12 @@ public class PlayerAttack : MonoBehaviour
     Vector2 mousePlacement;
 
     PlayerMove playerMoveScript;
+    SpriteRenderer spriteRenderer;
+    Animator anim;
 
     public float damage;
     public float attackDelay = 1;
+    public float moveAfterAttackDelay = 0.5f;
     public GameObject sweepAttack;
 
     bool canAttack = true;
@@ -20,6 +23,8 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         playerMoveScript = GetComponent<PlayerMove>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     public void OnAttack(InputValue input)
@@ -28,20 +33,36 @@ public class PlayerAttack : MonoBehaviour
         {
             GameObject temp = Instantiate(sweepAttack, attackPoint.position, rotator.rotation);
             temp.GetComponent<AttackDoDamage>().damage = damage;
-
+        
+            
+            canAttack = false;
+            //Flip player based on attacking direction
+            if (Mouse.current.position.ReadValue().x > Screen.width / 2.0f)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
             StartCoroutine(AttackCD(attackDelay));
         }
     }
 
     IEnumerator AttackCD(float cd)
     {
-        canAttack = false;
+ 
         playerMoveScript.cannotMove = true;
-        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("IsAttacking", true);
 
+        yield return new WaitForSeconds(moveAfterAttackDelay);
+
+        anim.SetBool("IsAttacking", false);
         playerMoveScript.cannotMove = false;
 
         yield return new WaitForSeconds(cd);
+
+
         canAttack = true;
     }
 }

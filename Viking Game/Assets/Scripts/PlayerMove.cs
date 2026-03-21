@@ -30,16 +30,17 @@ public class PlayerMove : MonoBehaviour
             {
                 rb.AddForce(new Vector2(movementVector.x * speed * Time.deltaTime, movementVector.y * speed * Time.deltaTime), ForceMode2D.Impulse); // Move Player
             }
+
+            if (rb.linearVelocity.x < -0.35)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else if (rb.linearVelocity.x > 0.35)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
 
-        if (rb.linearVelocity.x < -0.2)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (rb.linearVelocity.x > 0.2)
-        {
-            spriteRenderer.flipX = false;
-        }
     }
     public void OnMove(InputValue input)
     {
