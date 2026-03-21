@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: wall_diagonal_corner_up_right
+  m_Name: dungeon_floor_1 1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 884470703, guid: 2e6c265b161b4cf4b91fcb14033644f9, type: 3}
+  m_Sprite: {fileID: 1611766643, guid: 6cf8c56b5d1f45744a8bc7f956bd3f32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
