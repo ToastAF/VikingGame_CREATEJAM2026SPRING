@@ -13,7 +13,11 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         Initialize();
-        attack = GetComponent<EnemyAttack>();
+        // Prefer ranged attack when multiple EnemyAttack components exist
+        attack = GetComponent<EnemyRangedAttack>();
+        if (attack == null) attack = GetComponent<PounceAttack>();
+        if (attack == null) attack = GetComponent<SweepAttack>();
+        if (attack == null) attack = GetComponent<EnemyAttack>();
     }
 
     void Initialize()

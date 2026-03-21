@@ -5,6 +5,19 @@ public class EnemyAI : MonoBehaviour
 {
     public float detectionRange = 6f;
     public float moveSpeed = 3f;
+    [Tooltip("Layers that block line of sight (walls, obstacles)")]
+    public LayerMask sightBlockingMask = 0;
+
+    [Tooltip("How long the player must be continuously visible before the enemy becomes alerted")]
+    public float aggroDelay = 0.5f;
+
+    [Tooltip("Debug: show LOS raycast in Scene view")]
+    public bool debugLOS = false;
+    [Tooltip("Preferred distance to keep from the player when using ranged attacks")]
+    public float rangedPreferredDistance = 6f;
+
+    [Tooltip("Tolerance around preferred distance where the enemy will hold position")]
+    public float rangedDistanceBuffer = 1f;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -21,6 +34,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     private State currentState;
+
+    private float seenTimer = 0f;
 
     void Start()
     {
@@ -53,8 +68,20 @@ public class EnemyAI : MonoBehaviour
             switch (currentState)
             {
                 case State.Idle:
-                    if (distance < detectionRange)
-                        currentState = State.Chase;
+                    // require the player to be within detection range AND visible for a short time
+                    if (distance < detectionRange && HasLineOfSight())
+                    {
+                        seenTimer += Time.fixedDeltaTime;
+                        if (seenTimer >= aggroDelay)
+                        {
+                            currentState = State.Chase;
+                            seenTimer = 0f;
+                        }
+                    }
+                    else
+                    {
+                        seenTimer = 0f;
+                    }
                     break;
 
                 case State.Chase:
@@ -69,7 +96,14 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        MoveTowardsPlayer();
+                        if (attack is EnemyRangedAttack)
+                        {
+                            MaintainRangedDistance(distance);
+                        }
+                        else
+                        {
+                            MoveTowardsPlayer();
+                        }
                     }
                     break;
 
@@ -90,9 +124,39 @@ public class EnemyAI : MonoBehaviour
                         {
                             currentState = State.Chase;
                         }
+
+                        // If using ranged attack, try to maintain preferred distance while attacking
+                        if (attack is EnemyRangedAttack)
+                        {
+                            MaintainRangedDistance(distance);
+                        }
                     }
                     break;
             }
+        }
+    }
+
+    void MaintainRangedDistance(float distance)
+    {
+        float min = Mathf.Max(0f, rangedPreferredDistance - rangedDistanceBuffer);
+        float max = rangedPreferredDistance + rangedDistanceBuffer;
+
+        Vector2 dir = (player.position - transform.position).normalized;
+
+        if (distance < min)
+        {
+            // too close -> move away
+            rb.linearVelocity = -dir * moveSpeed;
+        }
+        else if (distance > max)
+        {
+            // too far -> approach
+            rb.linearVelocity = dir * moveSpeed;
+        }
+        else
+        {
+            // within preferred band -> stop moving
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
@@ -100,6 +164,23 @@ public class EnemyAI : MonoBehaviour
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.linearVelocity = direction * moveSpeed;
+    }
+
+    bool HasLineOfSight()
+    {
+        if (player == null) return false;
+
+        Vector2 dir = (player.position - transform.position);
+        float dist = dir.magnitude;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, sightBlockingMask);
+        if (debugLOS)
+        {
+            Debug.DrawLine(transform.position, player.position, hit.collider == null ? Color.green : Color.red, 0.1f);
+        }
+
+        // If raycast hits nothing in blocking mask, we have LOS
+        return hit.collider == null;
     }
 
     private void OnDrawGizmosSelected()

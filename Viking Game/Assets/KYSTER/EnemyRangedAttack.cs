@@ -7,7 +7,10 @@ public class EnemyRangedAttack : EnemyAttack
     public float projectileTravelTime = 0.5f;
     public float arcHeight = 2f;
 
-    public LayerMask targetLayer;
+    public LayerMask hitLayers;
+    public bool daggerProjectile = false;
+    [Tooltip("Speed of dagger projectiles when daggerProjectile is enabled")]
+    public float daggerSpeed = 14f;
 
     private bool isAttacking = false;
 
@@ -31,11 +34,13 @@ public class EnemyRangedAttack : EnemyAttack
         GameObject projGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
         // Init projectile
-        Projectile proj = projGO.GetComponent<Projectile>();
+            Projectile proj = projGO.GetComponent<Projectile>();
         if (proj != null)
         {
             proj.arcHeight = arcHeight;
-            proj.Init(targetPos, damage, projectileTravelTime, targetLayer);
+                proj.Init(targetPos, damage, projectileTravelTime, hitLayers, daggerProjectile);
+                if (daggerProjectile)
+                    proj.daggerSpeed = daggerSpeed;
         }
 
         // Stop attacking næste frame
