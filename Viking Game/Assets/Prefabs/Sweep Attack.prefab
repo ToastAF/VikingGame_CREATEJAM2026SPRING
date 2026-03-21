@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6597508357340250627}
   - component: {fileID: 2812184944450522745}
   - component: {fileID: 2324935190902251430}
+  - component: {fileID: 9050436594505654358}
   - component: {fileID: 7897301123865711620}
   - component: {fileID: 2630597423838668161}
   m_Layer: 0
@@ -107,6 +108,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroySelf
   destroyDelay: 0
+--- !u!114 &9050436594505654358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494444444573703251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e6b45bf37af054d9c9404ef840bb85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackDoDamage
+  damage: 0
+  knockbackForce: 5
 --- !u!95 &7897301123865711620
 Animator:
   serializedVersion: 7

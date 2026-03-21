@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -9,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
     private Enemy enemy;
     private EnemyAttack attack;
+
+    public bool isStunned = false;
 
     private enum State
     {
@@ -37,38 +40,42 @@ public class EnemyAI : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.position);
 
-        switch (currentState)
-        {
-            case State.Idle:
-                if (distance < detectionRange)
-                    currentState = State.Chase;
-                break;
+        if(isStunned == false)
+        { 
+            switch (currentState)
+            {
+                case State.Idle:
+                    if (distance < detectionRange)
+                        currentState = State.Chase;
+                    break;
 
-            case State.Chase:
-                if (attack != null && attack.InRange(player))
-                {
-                    currentState = State.Attack;
-                    rb.linearVelocity = Vector2.zero;
-                }
-                else if (distance > detectionRange)
-                {
-                    currentState = State.Idle;
-                }
-                else
-                {
-                    MoveTowardsPlayer();
-                }
-                break;
+                case State.Chase:
+                    if (attack != null && attack.InRange(player))
+                    {
+                        currentState = State.Attack;
+                        rb.linearVelocity = Vector2.zero;
+                    }
+                    else if (distance > detectionRange)
+                    {
+                        currentState = State.Idle;
+                    }
+                    else
+                    {
+                        MoveTowardsPlayer();
+                    }
+                    break;
 
-            case State.Attack:
-                enemy.TryAttack(player);
+                case State.Attack:
+                    enemy.TryAttack(player);
 
-                if (attack != null && !attack.InRange(player))
-                {
-                    currentState = State.Chase;
-                }
-                break;
+                    if (attack != null && !attack.InRange(player))
+                    {
+                        currentState = State.Chase;
+                    }
+                    break;
+            }
         }
+        
     }
 
     void MoveTowardsPlayer()
@@ -81,5 +88,17 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
+
+    public void StunEnemy(float duration)
+    {
+        StartCoroutine(Stun(duration));
+    }
+
+    IEnumerator Stun(float cd)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(cd);
+        isStunned = false;
     }
 }
