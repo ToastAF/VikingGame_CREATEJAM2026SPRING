@@ -1,30 +1,44 @@
 using UnityEngine;
 
-public class RangedAttack : EnemyAttack
+public class EnemyRangedAttack : EnemyAttack
 {
-    public GameObject projectilePrefab;
-    public float projectileSpeed = 5f;
+    [Header("Projectile Settings")]
+    public GameObject projectilePrefab; // Prefab med Projectile.cs
+    public float projectileTravelTime = 0.5f;
+    public float arcHeight = 2f;
+
+    public LayerMask targetLayer;
+
+    private bool isAttacking = false;
+
+    public override bool InRange(Transform target)
+    {
+        // Her kan du sætte max range
+        float dist = Vector2.Distance(transform.position, target.position);
+        return dist <= 10f; // juster som ønsket
+    }
 
     public override void ExecuteAttack(Transform target, float damage)
     {
-        if (projectilePrefab == null) return;
+        if (isAttacking) return;
 
-        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        isAttacking = true;
 
-        Vector2 dir = (target.position - transform.position).normalized;
+        // Snapshoot player position
+        Vector2 targetPos = target.position;
 
-        Rigidbody2D rb = proj.GetComponent<Rigidbody2D>();
-        if (rb != null)
+        // Instantiate projectile
+        GameObject projGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+
+        // Init projectile
+        Projectile proj = projGO.GetComponent<Projectile>();
+        if (proj != null)
         {
-            rb.linearVelocity = dir * projectileSpeed;
+            proj.arcHeight = arcHeight;
+            proj.Init(targetPos, damage, projectileTravelTime, targetLayer);
         }
 
-        Projectile projectile = proj.GetComponent<Projectile>();
-        if (projectile != null)
-        {
-            projectile.SetDamage(damage);
-        }
-
-        Debug.Log("Ranged attack");
+        // Stop attacking næste frame
+        isAttacking = false;
     }
 }

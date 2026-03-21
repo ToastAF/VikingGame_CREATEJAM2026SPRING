@@ -28,8 +28,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         currentHP -= amount;
 
-        Debug.Log(gameObject.name + " HP: " + currentHP);
-
         if (currentHP <= 0)
         {
             Die();
@@ -40,6 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if (attack == null) return;
 
+        // 🔴 cooldown
         if (Time.time - lastAttackTime < data.attackCooldown)
             return;
 

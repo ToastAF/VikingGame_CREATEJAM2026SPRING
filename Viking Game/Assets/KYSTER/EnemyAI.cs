@@ -38,10 +38,18 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
+        // 🔹 STOP ALT hvis vi er pouncing
+        if (attack is PounceAttack pounce && pounce.IsPouncing())
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         float distance = Vector2.Distance(transform.position, player.position);
 
-        if(isStunned == false)
-        { 
+        // 🔹 kun kør AI hvis ikke stunned
+        if (!isStunned)
+        {
             switch (currentState)
             {
                 case State.Idle:
@@ -68,14 +76,24 @@ public class EnemyAI : MonoBehaviour
                 case State.Attack:
                     enemy.TryAttack(player);
 
-                    if (attack != null && !attack.InRange(player))
+                    // 🔹 hold attack state under pounce
+                    if (attack is PounceAttack p)
                     {
-                        currentState = State.Chase;
+                        if (!p.IsPouncing() && !attack.InRange(player))
+                        {
+                            currentState = State.Chase;
+                        }
+                    }
+                    else
+                    {
+                        if (attack != null && !attack.InRange(player))
+                        {
+                            currentState = State.Chase;
+                        }
                     }
                     break;
             }
         }
-        
     }
 
     void MoveTowardsPlayer()
