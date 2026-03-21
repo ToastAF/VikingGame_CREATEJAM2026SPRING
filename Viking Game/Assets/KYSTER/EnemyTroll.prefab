@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3085673229491663952}
   - component: {fileID: 1240480202823824875}
   - component: {fileID: 398983876960038399}
+  - component: {fileID: 5677804490759625442}
   m_Layer: 6
   m_Name: EnemyTroll
   m_TagString: Enemy
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91017f7294fa6f94db679849c60c75c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  data: {fileID: 11400000, guid: d81481f82ae750447a0479da53f432cd, type: 2}
+  data: {fileID: 11400000, guid: e643bdd5a4eca6e408e8b7b7ea760a53, type: 2}
   bloodParticles: {fileID: 1773827754458446457, guid: 2ff47ae860aaee943a4c6f68360b24c5, type: 3}
   damageText: {fileID: 5265834037048530160, guid: 062f13a3381b21649bcc67c642237d91, type: 3}
 --- !u!114 &1240480202823824875
@@ -227,3 +228,26 @@ MonoBehaviour:
     m_Bits: 0
   daggerProjectile: 0
   daggerSpeed: 14
+  projectileRotationOffset: -45
+--- !u!95 &5677804490759625442
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516383017480309141}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 745446b8f4761534a97b014002949688, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
