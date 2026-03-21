@@ -64,7 +64,7 @@ public class FloorVisualiser : MonoBehaviour
             tile = wallFull;
         }
 
-        Debug.Log($"Wall at {position}, binary={binaryType}, int={typeAsInt}, tile={(tile != null ? tile.name : "NULL")}");
+        //Debug.Log($"Wall at {position}, binary={binaryType}, int={typeAsInt}, tile={(tile != null ? tile.name : "NULL")}");
 
 
         if (tile != null)
@@ -122,7 +122,7 @@ public class FloorVisualiser : MonoBehaviour
             tile = wallBottom;
         }
 
-        Debug.Log($"CORNER wall at {position}, binary={binaryType}, int={typeAsInt}, tile={(tile != null ? tile.name : "NULL")}");
+        //Debug.Log($"CORNER wall at {position}, binary={binaryType}, int={typeAsInt}, tile={(tile != null ? tile.name : "NULL")}");
 
 
         if (tile != null)

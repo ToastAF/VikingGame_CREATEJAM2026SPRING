@@ -20,7 +20,11 @@ public class RoomFirstDungeonGenerator : SimpleWalkGenerator
     [SerializeField] private GameObject exitPrefab;
     private GameObject spawnedExit;
 
-    [SerializeField] private GameObject middlePrefab;
+    //[SerializeField] private List<GameObject> middlePrefab = new List<GameObject>();
+    //private List<GameObject> spawnedMiddle = new List<GameObject>();
+
+    [SerializeField] private List<GameObject> middlePrefabs = new List<GameObject>();
+    private List<GameObject> availableMiddlePrefabs = new List<GameObject>();
     private GameObject spawnedMiddle;
 
     [SerializeField] private int corridorBrushSize = 3;
@@ -94,6 +98,7 @@ public class RoomFirstDungeonGenerator : SimpleWalkGenerator
             }
             spawnedDecorations.Clear();
         }
+        availableMiddlePrefabs = new List<GameObject>(middlePrefabs);
 
         var roomsList = Procedural.BinarySpacePartioning(
             new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)),
@@ -464,7 +469,7 @@ public class RoomFirstDungeonGenerator : SimpleWalkGenerator
 
     private void SpawnMiddle(Vector2Int roomCenter)
     {
-        if (middlePrefab == null || grid == null)
+        if (availableMiddlePrefabs == null || availableMiddlePrefabs.Count == 0 || grid == null)
             return;
 
         if (spawnedMiddle != null)
@@ -477,12 +482,19 @@ public class RoomFirstDungeonGenerator : SimpleWalkGenerator
             spawnedMiddle = null;
         }
 
+        int randomIndex = UnityEngine.Random.Range(0, availableMiddlePrefabs.Count);
+        GameObject chosenMiddlePrefab = availableMiddlePrefabs[randomIndex];
+        availableMiddlePrefabs.RemoveAt(randomIndex);
+
+        if (chosenMiddlePrefab == null)
+            return;
+
         Vector3Int cellPosition = new Vector3Int(roomCenter.x, roomCenter.y, 0);
         Vector3 spawnPosition = grid.GetCellCenterWorld(cellPosition);
         spawnPosition.z = 0f;
 
-        spawnedMiddle = Instantiate(middlePrefab, spawnPosition, Quaternion.identity);
-        spawnedMiddle.name = "Middle";
+        spawnedMiddle = Instantiate(chosenMiddlePrefab, spawnPosition, Quaternion.identity);
+        spawnedMiddle.name = chosenMiddlePrefab.name;
     }
 
     private void SpawnExit(Vector2Int roomCenter)
