@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -13,8 +14,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public GameObject bloodParticles, damageText;
 
+    Animator anim;
+
     private void Start()
     {
+        anim = GetComponent<Animator>();
+
         Initialize();
         // Prefer ranged attack when multiple EnemyAttack components exist
         attack = GetComponent<EnemyRangedAttack>();
@@ -63,9 +68,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
         if (attack.InRange(target))
         {
+            StartCoroutine(AnimationAttackSwitch()); // Set animation to IsAttacking = true for a short while
             attack.ExecuteAttack(target, damage);
             lastAttackTime = Time.time;
         }
+    }
+
+    IEnumerator AnimationAttackSwitch()
+    {
+        anim.SetBool("IsAttacking", true);
+        yield return new WaitForSeconds(0.2f);
+        anim.SetBool("IsAttacking", false);
     }
 
     void Die()
