@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5965104532512523402}
   - component: {fileID: 3360856307907595851}
   - component: {fileID: 4170441221022790466}
+  - component: {fileID: 4849842365861744054}
   - component: {fileID: 1584596684722248257}
   - component: {fileID: 1805611829830847195}
   m_Layer: 0
@@ -211,6 +212,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RotatorMover
   cam: {fileID: 0}
   rotator: {fileID: 5352444035999485900}
+--- !u!114 &4849842365861744054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995463576123345032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1520c52b75f634687feee271f51e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoonHandler
 --- !u!95 &1584596684722248257
 Animator:
   serializedVersion: 7

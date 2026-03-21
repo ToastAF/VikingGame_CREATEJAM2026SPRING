@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     PlayerMove playerMoveScript;
     SpriteRenderer spriteRenderer;
     Animator anim;
+    BoonHandler boonHandler;
 
     public float damage;
     public float attackDelay = 1;
@@ -25,6 +26,7 @@ public class PlayerAttack : MonoBehaviour
         playerMoveScript = GetComponent<PlayerMove>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        boonHandler = GetComponent<BoonHandler>();
     }
 
     public void OnAttack(InputValue input)
@@ -32,7 +34,10 @@ public class PlayerAttack : MonoBehaviour
         if (canAttack)
         {
             GameObject temp = Instantiate(sweepAttack, attackPoint.position, rotator.rotation);
-            temp.GetComponent<AttackDoDamage>().damage = damage;
+            AttackDoDamage tempScript = temp.GetComponent<AttackDoDamage>();
+            tempScript.damage = damage;
+            tempScript.boonHandler = boonHandler;
+
         
             
             canAttack = false;

@@ -123,6 +123,12 @@ MonoBehaviour:
   damage: 0
   knockbackForce: 5
   bloodParticles: {fileID: 1773827754458446457, guid: 2ff47ae860aaee943a4c6f68360b24c5, type: 3}
+  lightningAttack: {fileID: 3285017499907319923, guid: 58e14c860239a9746afd4f01a0cc095b, type: 3}
+  boonHandler: {fileID: 0}
+  searchRadius: 10
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &7897301123865711620
 Animator:
   serializedVersion: 7
