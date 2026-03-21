@@ -18,14 +18,13 @@ public class AttackDoDamage : MonoBehaviour
             collision.GetComponent<Enemy>().TakeDamage(damage);
             Debug.Log("I hit the thing!");
 
-            Instantiate(bloodParticles, new Vector3(collision.transform.position.x, collision.transform.position.y, -1), Quaternion.identity);
 
             if (boonHandler.boons[0].level > 0) //If player has a level in the Thor rune
             {
                 GameObject secondNearestEnemy = FindSecondNearestEnemy();
                 GameObject tempLightning = Instantiate(lightningAttack);
                 LightningLogic lightningScript = tempLightning.GetComponent<LightningLogic>();
-                lightningScript.damage = damage;
+                lightningScript.damage = damage * (boonHandler.boons[0].level + 1); //Does more damage based on Thor rune level
                 lightningScript.CreateArc(collision.gameObject, secondNearestEnemy); //ACTUALLY DO LIGHTNING!!!
             }
 
