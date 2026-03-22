@@ -87,11 +87,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     IEnumerator Regen()
     {
         canRegen = false;
-        float healthToHeal = 10 * boonHandler.boons[1].level;
+        float healthToHeal = 3 * boonHandler.boons[1].level;
         currentHP += healthToHeal;
         SpawnHealText(healthToHeal);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         canRegen = true;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,15 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void NextFloor()
+    {
+        currentFloor++;
+        if(currentFloor > 3)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 
     public float GetModifier()

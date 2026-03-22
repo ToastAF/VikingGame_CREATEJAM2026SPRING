@@ -16,6 +16,8 @@ public class PlayerMove : MonoBehaviour
     //Interaction with Runes
     BoonInteract boonInteract;
     bool runeIsNear = false;
+    public PortalScript portalInteract;
+    bool portalIsNear = false;
 
     void Start()
     {
@@ -58,6 +60,13 @@ public class PlayerMove : MonoBehaviour
             runeIsNear = true;
             boonInteract = collision.gameObject.GetComponent<BoonInteract>();
         }
+
+        if (collision.gameObject.CompareTag("Portal"))
+        {
+            portalIsNear = true;
+            portalInteract = collision.gameObject.GetComponent<PortalScript>();
+            Debug.Log("Got new portal");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -66,6 +75,11 @@ public class PlayerMove : MonoBehaviour
         {
             runeIsNear = false;
         }
+
+        if (collision.gameObject.CompareTag("Portal"))
+        {
+            portalIsNear = false;
+        }
     }
 
     public void OnE(InputValue input)
@@ -73,6 +87,12 @@ public class PlayerMove : MonoBehaviour
         if (runeIsNear)
         {
             boonInteract.DoInteraction();
+        }
+
+        if (portalIsNear)
+        {
+            portalInteract.GoNext();
+            Debug.Log("Vi kom herhen");
         }
     }
 }

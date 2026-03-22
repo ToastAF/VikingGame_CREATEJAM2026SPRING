@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Rune
+  - Portal
+  - Generator
+  - Manager
   layers:
   - Default
   - TransparentFX

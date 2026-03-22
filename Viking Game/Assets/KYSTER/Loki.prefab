@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6850276746872135247}
   - component: {fileID: -3879489178774783752}
   - component: {fileID: 698353710881723712}
+  - component: {fileID: 6719701470587221852}
   - component: {fileID: 7764131896908153928}
   m_Layer: 6
   m_Name: Loki
@@ -253,6 +254,19 @@ MonoBehaviour:
   daggerProjectile: 1
   daggerSpeed: 14
   projectileRotationOffset: 45
+--- !u!114 &6719701470587221852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225562852867793647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9cff59664885043abbe6907fe7ada8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LokiDies
+  portal: {fileID: 5085023863802332634, guid: 175c18531485ccb448fe89c25399c87f, type: 3}
 --- !u!95 &7764131896908153928
 Animator:
   serializedVersion: 7
