@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void SpawnText(float dmg)
     {
-        GameObject textObj = Instantiate(damageText, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.4f, 1f), 0), Quaternion.identity);
+        GameObject textObj = Instantiate(damageText, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0.4f, 1f), -5), Quaternion.identity);
         TextMeshProUGUI textComp = textObj.GetComponentInChildren<Transform>().Find("DamageText").GetComponent<TextMeshProUGUI>(); //We get the component here
         textComp.text = dmg.ToString();
     }

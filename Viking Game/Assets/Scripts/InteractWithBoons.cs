@@ -8,6 +8,9 @@ public class InteracWithBoons : MonoBehaviour
     public GameObject UICanvas, textObject;
     BoonHandler boonHandler;
 
+    public GameObject thorLevelText, freyaLevelText;
+
+
     private void Start()
     {
         boonHandler = GetComponent<BoonHandler>();
@@ -23,9 +26,11 @@ public class InteracWithBoons : MonoBehaviour
             case "Thor":
                 boonHandler.boons[0].level++;
                 tempText = "You got Thor's rune! You're hands tremble with lightning.";
+                thorLevelText.GetComponent<TextMeshProUGUI>().text = ": " + boonHandler.boons[0].level;
                 break;
             case "Freya":
                 tempText = "You got Freya's rune! You feel nature healing you.";
+                freyaLevelText.GetComponent<TextMeshProUGUI>().text = ": " + boonHandler.boons[1].level;
                 boonHandler.boons[1].level++;
                 break;
             case "Skadi":

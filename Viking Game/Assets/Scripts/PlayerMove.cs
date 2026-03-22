@@ -68,9 +68,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputValue input)
+    public void OnE(InputValue input)
     {
-        Debug.Log("Hello");
         if (runeIsNear)
         {
             boonInteract.DoInteraction();

@@ -14,8 +14,8 @@ TagManager:
   - Water
   - UI
   - enemyLayer
-  - 
-  - 
+  - obstacle
+  - walkable
   - 
   - 
   - 

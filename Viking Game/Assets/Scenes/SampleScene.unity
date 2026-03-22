@@ -159,13 +159,15 @@ MonoBehaviour:
   randomWalkRooms: 1
   grid: {fileID: 1854880273}
   playerTransform: {fileID: 1330208338}
-  exitPrefab: {fileID: 643434201770448934, guid: a2f449572d32a1249b21be08f1ce90ad, type: 3}
+  exitPrefab: {fileID: 7225562852867793647, guid: 98881481654979546b4daa10acd51cdb, type: 3}
   middlePrefabs:
   - {fileID: 8601166310079084387, guid: 6e80b9a358f610548a5472c479305edb, type: 3}
   - {fileID: 8601166310079084387, guid: 6f34b6fe9ccfa77489956ff8fd28934d, type: 3}
   corridorBrushSize: 3
   enemyPrefabs:
   - {fileID: 7225562852867793647, guid: 667afdc67116a95439d998dde181dbfe, type: 3}
+  - {fileID: 3516383017480309141, guid: d0685b12ec3536248812e46993054575, type: 3}
+  - {fileID: 4987972270414403758, guid: 236bd1adaf0e57543bb7b7fd1f98284d, type: 3}
   minEnemiesPerRoom: 2
   maxEnemiesPerRoom: 4
   decorationPrefabs:
@@ -401,7 +403,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1433,7 +1435,7 @@ GameObject:
   - component: {fileID: 1426580367}
   - component: {fileID: 1426580369}
   - component: {fileID: 1426580368}
-  m_Layer: 13
+  m_Layer: 7
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8316,7 +8318,7 @@ GameObject:
   - component: {fileID: 1721031709}
   - component: {fileID: 1721031707}
   - component: {fileID: 1721031708}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22722,9 +22724,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 671040361167814068, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 671040361167814068, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Size.y
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 671040361167814068, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 671040361167814068, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805611829830847195, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 4014f7ebdd77618478f6fecebe5af342, type: 3}
     - target: {fileID: 1995463576123345032, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995463576123345032, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1995463576123345032, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: m_TagString
@@ -22735,12 +22761,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4701258154401476048, guid: 6cb79bf3628824e4a8c896f6c2a4daa0, type: 3}
     - target: {fileID: 2605490189940656064, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605490189940656064, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605490189940656064, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605490189940656064, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2605490189940656064, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3349026465834550965, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3360856307907595851, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: cam
@@ -22754,6 +22796,10 @@ PrefabInstance:
       propertyPath: attackDelay
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 3976630132283726740, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4170441221022790466, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: cam
       value: 
@@ -22766,9 +22812,21 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4849842365861744054, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: thorLevelText
+      value: 
+      objectReference: {fileID: 466672467}
+    - target: {fileID: 4849842365861744054, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: freyaLevelText
+      value: 
+      objectReference: {fileID: 1067268353}
     - target: {fileID: 5293884177052679569, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352444035999485900, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6257912019607615551, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: UICanvas
@@ -22778,6 +22836,14 @@ PrefabInstance:
       propertyPath: textObject
       value: 
       objectReference: {fileID: 2049483095}
+    - target: {fileID: 6257912019607615551, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: thorLevelText
+      value: 
+      objectReference: {fileID: 466672467}
+    - target: {fileID: 6257912019607615551, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
+      propertyPath: freyaLevelText
+      value: 
+      objectReference: {fileID: 1067268353}
     - target: {fileID: 6990010474013134362, guid: 934c97a62e3e2854e8c2a2fdd1945b64, type: 3}
       propertyPath: hpBar
       value: 

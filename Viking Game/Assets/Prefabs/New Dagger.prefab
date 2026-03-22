@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4987972270414403758
+--- !u!1 &7722054131998666415
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,43 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1291640902174044092}
-  - component: {fileID: 2052357261827363527}
-  - component: {fileID: 3519059535565234345}
-  - component: {fileID: 9218249126399694445}
-  - component: {fileID: 8609906775226399414}
-  - component: {fileID: 6269185490746901199}
-  - component: {fileID: 3580890143093006242}
-  m_Layer: 6
-  m_Name: EnemyWoman
-  m_TagString: Enemy
+  - component: {fileID: 3301023770899608750}
+  - component: {fileID: 8213750135604460028}
+  - component: {fileID: 8739700521647655966}
+  - component: {fileID: 7028488010401700512}
+  - component: {fileID: 2232761031793753340}
+  m_Layer: 0
+  m_Name: New Dagger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1291640902174044092
+--- !u!4 &3301023770899608750
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
+  m_GameObject: {fileID: 7722054131998666415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.91999, y: -1.13231, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2052357261827363527
+--- !u!212 &8213750135604460028
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
+  m_GameObject: {fileID: 7722054131998666415}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,9 +82,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 150ed9b120c95b3458ca282bd1567b8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,16 +92,16 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!50 &3519059535565234345
+--- !u!50 &8739700521647655966
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
+  m_GameObject: {fileID: 7722054131998666415}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -121,15 +119,31 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &9218249126399694445
-BoxCollider2D:
+--- !u!114 &7028488010401700512
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
+  m_GameObject: {fileID: 7722054131998666415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07984b750c08f06479b0ff235a85163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DaggerThrow
+  damage: 0
+  daggerSpeed: 5
+  projectileRotationOffset: 45
+  target: {x: 0, y: 0}
+--- !u!70 &2232761031793753340
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722054131998666415}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -157,68 +171,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.0001, y: 0.0001}
-  m_EdgeRadius: 0
---- !u!114 &8609906775226399414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91017f7294fa6f94db679849c60c75c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  data: {fileID: 11400000, guid: ad7bf1ed2f643d24490fe78fc702efc2, type: 2}
-  bloodParticles: {fileID: 1773827754458446457, guid: 2ff47ae860aaee943a4c6f68360b24c5, type: 3}
-  damageText: {fileID: 5265834037048530160, guid: 062f13a3381b21649bcc67c642237d91, type: 3}
---- !u!114 &6269185490746901199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 711ba3df3d4aa0e4fa8e77d72317c33e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
-  detectionRange: 21.83
-  moveSpeed: 3
-  sightBlockingMask:
-    serializedVersion: 2
-    m_Bits: 0
-  aggroDelay: 0.5
-  debugLOS: 0
-  rangedPreferredDistance: 6
-  rangedDistanceBuffer: 1
-  isStunned: 0
---- !u!114 &3580890143093006242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987972270414403758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f108a996a5f3f314ab1b274868a6178e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PounceAttack
-  attackRange: 1.5
-  pounceDistance: 5
-  pounceDuration: 0.4
-  impactRadius: 1
+  m_Offset: {x: 0.06, y: 0.06}
+  m_Size: {x: 0.06, y: 0.06}
+  m_Direction: 0

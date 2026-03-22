@@ -17,6 +17,7 @@ public class LokiTeleport : MonoBehaviour
 
     [Tooltip("Layer mask used to detect obstacles when choosing a teleport spot")]
     public LayerMask obstacleMask = 0;
+    public LayerMask walkableMask = 0;
 
     [Tooltip("Optional VFX to spawn at origin and destination")]
     public GameObject teleportEffectPrefab;
@@ -105,7 +106,9 @@ public class LokiTeleport : MonoBehaviour
 
             // if obstacleMask is zero, the check will be skipped (no mask)
             bool blocked = obstacleMask != 0 && Physics2D.OverlapCircle(candidate, checkRadius, obstacleMask) != null;
-            if (!blocked)
+
+            bool isOnWalkable = walkableMask != 0 && Physics2D.OverlapCircle(candidate, checkRadius * 0.5f, walkableMask) != null;
+            if (!blocked && isOnWalkable)
             {
                 chosenPos = candidate;
                 break;

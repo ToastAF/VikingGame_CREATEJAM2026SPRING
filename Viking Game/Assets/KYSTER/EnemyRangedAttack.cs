@@ -34,6 +34,13 @@ public class EnemyRangedAttack : EnemyAttack
 
         // Instantiate projectile
         GameObject projGO = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        DaggerThrow tempScript = projGO.GetComponent<DaggerThrow>();
+        if(tempScript != null)
+        {
+            tempScript.damage = damage;
+            tempScript.target = targetPos;
+        }
+
 
         // Init projectile
             Projectile proj = projGO.GetComponent<Projectile>();

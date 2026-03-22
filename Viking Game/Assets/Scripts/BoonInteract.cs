@@ -12,7 +12,7 @@ public class BoonInteract : MonoBehaviour
     public void DoInteraction()
     {
         booningScript.UpdateBoons(godName);
-        Debug.Log("Picked up rune!");
+        //Debug.Log("Picked up rune!");
         Destroy(gameObject);
 
     }

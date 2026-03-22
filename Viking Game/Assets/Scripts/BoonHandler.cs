@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.UI;
+using TMPro;
 
 [System.Serializable]
 public class Boon
@@ -18,6 +20,7 @@ public class Boon
 public class BoonHandler : MonoBehaviour
 {
     public List<Boon> boons = new List<Boon>();
+
 
     private void Start()
     {

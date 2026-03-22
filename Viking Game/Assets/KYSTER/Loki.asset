@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe263ac17ac6ac419007533fdc88bfb, type: 3}
   m_Name: Loki
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  baseHP: 6000
-  baseDamage: 50
+  baseHP: 300
+  baseDamage: 15
   attackCooldown: 2
