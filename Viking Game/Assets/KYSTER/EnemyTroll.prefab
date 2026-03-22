@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyRangedAttack
   attackRange: 1.5
   projectilePrefab: {fileID: 4133741355025007198, guid: 1d1e2aa441bafdb47b17a759b2d37576, type: 3}
-  projectileTravelTime: 0.5
+  projectileTravelTime: 1
   arcHeight: 2
   hitLayers:
     serializedVersion: 2
@@ -278,3 +278,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9e4cc0186c5c76a4a900361dfe1382b6, type: 3}
   volume: 1
   playAtPosition: 1
+  attackSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  idleSource: {fileID: 0}
+  runSource: {fileID: 0}
+  attackCooldown: 0.1
+  hurtCooldown: 0.1
+  idleCooldown: 0
+  runCooldown: 0.1
