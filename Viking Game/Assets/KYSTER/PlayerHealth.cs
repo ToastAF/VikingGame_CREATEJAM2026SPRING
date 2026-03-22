@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -32,7 +33,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             StartCoroutine(Regen());
         }
 
-        Mathf.Clamp(currentHP, 0, maxHP);
+        Mathf.Clamp(currentHP, -50, maxHP);
     }
 
     public void TakeDamage(float amount)
@@ -59,7 +60,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Die()
     {
         Debug.Log("Player died");
-        // Implement game over
+        SceneManager.LoadScene(2);
     }
 
     void SpawnText(float dmg)
