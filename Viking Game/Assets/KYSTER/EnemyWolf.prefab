@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6269185490746901199}
   - component: {fileID: 3580890143093006242}
   - component: {fileID: 3234392860107182915}
+  - component: {fileID: -8015090698935638809}
   m_Layer: 6
   m_Name: EnemyWolf
   m_TagString: Enemy
@@ -245,3 +246,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-8015090698935638809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987972270414403758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9501fc75115f14b92eb8ab950513d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KYSTER.Audio.EnemyAudio
+  attackClips:
+  - {fileID: 8300000, guid: 1782844849bae994ba6c9418bf181715, type: 3}
+  - {fileID: 8300000, guid: 6173127fde2a3af4fb3c63abdb580ff4, type: 3}
+  hurtClips:
+  - {fileID: 8300000, guid: 93636a2cc10be7a42aeb76c868bd7c83, type: 3}
+  - {fileID: 8300000, guid: 13af7f24e1b719d4184e5fc7cc2e73c9, type: 3}
+  idleClips:
+  - {fileID: 8300000, guid: 3637205324533be4395bc5a03d2962b7, type: 3}
+  - {fileID: 8300000, guid: a1ea6da2a40686747b93a4f119ae156d, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: c8a12ae6dafbaf04bba00f39498f2173, type: 3}
+  volume: 1
+  playAtPosition: 1
+  attackSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  idleSource: {fileID: 0}
+  runSource: {fileID: 0}
+  attackCooldown: 0.1
+  hurtCooldown: 0.1
+  idleCooldown: 0
+  runCooldown: 0.1

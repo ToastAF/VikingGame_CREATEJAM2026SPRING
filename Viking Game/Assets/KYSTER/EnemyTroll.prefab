@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1240480202823824875}
   - component: {fileID: 398983876960038399}
   - component: {fileID: 5677804490759625442}
+  - component: {fileID: -9002509914338290388}
   m_Layer: 6
   m_Name: EnemyTroll
   m_TagString: Enemy
@@ -251,3 +252,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-9002509914338290388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3516383017480309141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9501fc75115f14b92eb8ab950513d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KYSTER.Audio.EnemyAudio
+  attackClips:
+  - {fileID: 8300000, guid: b8f71b99df42c3b4b86b44bffab6a330, type: 3}
+  - {fileID: 8300000, guid: 7c512ab3bf1aabb4b9e1d477f6ea12a9, type: 3}
+  hurtClips:
+  - {fileID: 8300000, guid: de258fd7ff181d04dba01123abfd8f2f, type: 3}
+  - {fileID: 8300000, guid: e09182a00a4dd7149b9bc1e233ffdc43, type: 3}
+  idleClips:
+  - {fileID: 8300000, guid: 1869e32a0559f4a4a855a4c8b5db6f0d, type: 3}
+  - {fileID: 8300000, guid: 0ae9eb0279990cd4190ec88a0e6d7209, type: 3}
+  - {fileID: 8300000, guid: 92b13b3fe4cc18c49905845745a65a8a, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: 9e4cc0186c5c76a4a900361dfe1382b6, type: 3}
+  volume: 1
+  playAtPosition: 1

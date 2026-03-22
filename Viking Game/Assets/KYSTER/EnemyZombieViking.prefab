@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6850276746872135247}
   - component: {fileID: -247344341022729445}
   - component: {fileID: 8174295663884494818}
+  - component: {fileID: 650755343035316961}
   m_Layer: 6
   m_Name: EnemyZombieViking
   m_TagString: Enemy
@@ -243,3 +244,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &650755343035316961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225562852867793647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9501fc75115f14b92eb8ab950513d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KYSTER.Audio.EnemyAudio
+  attackClips:
+  - {fileID: 8300000, guid: 4cf3e9011f55c934da954dd77cc2432c, type: 3}
+  - {fileID: 8300000, guid: 9c0656457eee5c541bce90412829e711, type: 3}
+  - {fileID: 8300000, guid: 38837aab1c4f61f49a2b84787e850b8f, type: 3}
+  hurtClips: []
+  idleClips:
+  - {fileID: 8300000, guid: 89c46063be55b304ca6a9dac0bebcedb, type: 3}
+  - {fileID: 8300000, guid: eae1ef7c6bb05f7429b71f0807f32e66, type: 3}
+  - {fileID: 8300000, guid: beb78db240d19154b9418938a378ce6e, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: 47751c9ca03d86e43a2e4cf76bb82cae, type: 3}
+  - {fileID: 8300000, guid: b68efd7482546694aa5f6058cc7f32e9, type: 3}
+  volume: 1
+  playAtPosition: 1
+  attackSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  idleSource: {fileID: 0}
+  runSource: {fileID: 0}
+  attackCooldown: 0.1
+  hurtCooldown: 0.1
+  idleCooldown: 0
+  runCooldown: 0.1
