@@ -25,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     private EnemyAttack attack;
 
     public bool isStunned = false;
+    Animator anim;
+    SpriteRenderer spriteRenderer;
 
     private enum State
     {
@@ -47,6 +49,9 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         enemy = GetComponent<Enemy>();
         attack = GetComponent<EnemyAttack>();
+
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -82,6 +87,9 @@ public class EnemyAI : MonoBehaviour
                     {
                         seenTimer = 0f;
                     }
+
+                    anim.SetBool("IsWalking", false); // ANIMATION  LOGIC <<<<----------------------
+
                     break;
 
                 case State.Chase:
@@ -99,16 +107,21 @@ public class EnemyAI : MonoBehaviour
                         if (attack is EnemyRangedAttack)
                         {
                             MaintainRangedDistance(distance);
+                            anim.SetBool("IsWalking", true); // ANIMATION  LOGIC <<<<----------------------
                         }
                         else
                         {
                             MoveTowardsPlayer();
+                            anim.SetBool("IsWalking", true); // ANIMATION  LOGIC 
                         }
                     }
                     break;
 
                 case State.Attack:
                     enemy.TryAttack(player);
+
+                    anim.SetBool("IsWalking", false); // ANIMATION  LOGIC <<<<----------------------
+
 
                     // 🔹 hold attack state under pounce
                     if (attack is PounceAttack p)
@@ -133,6 +146,15 @@ public class EnemyAI : MonoBehaviour
                     }
                     break;
             }
+        }
+
+        if (rb.linearVelocity.x < -0.1f)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (rb.linearVelocity.x > 0.1f)
+        {
+            spriteRenderer.flipX = false;
         }
     }
 

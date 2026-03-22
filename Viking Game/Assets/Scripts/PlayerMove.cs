@@ -13,6 +13,10 @@ public class PlayerMove : MonoBehaviour
     //For input system
     public Vector2 movementVector;
 
+    //Interaction with Runes
+    BoonInteract boonInteract;
+    bool runeIsNear = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,5 +49,31 @@ public class PlayerMove : MonoBehaviour
     public void OnMove(InputValue input)
     {
         movementVector = input.Get<Vector2>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Rune"))
+        {
+            runeIsNear = true;
+            boonInteract = collision.gameObject.GetComponent<BoonInteract>();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Rune"))
+        {
+            runeIsNear = false;
+        }
+    }
+
+    public void OnInteract(InputValue input)
+    {
+        Debug.Log("Hello");
+        if (runeIsNear)
+        {
+            boonInteract.DoInteraction();
+        }
     }
 }

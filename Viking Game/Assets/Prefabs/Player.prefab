@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3360856307907595851}
   - component: {fileID: 4170441221022790466}
   - component: {fileID: 4849842365861744054}
+  - component: {fileID: 6990010474013134362}
+  - component: {fileID: 6257912019607615551}
   - component: {fileID: 1584596684722248257}
   - component: {fileID: 1805611829830847195}
   m_Layer: 0
@@ -88,7 +90,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4701258154401476048, guid: 6cb79bf3628824e4a8c896f6c2a4daa0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -161,8 +163,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0, y: -0.65}
+  m_Size: {x: 0.7, y: 0.7}
   m_Direction: 0
 --- !u!114 &5965104532512523402
 MonoBehaviour:
@@ -224,6 +226,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1520c52b75f634687feee271f51e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoonHandler
+  boons: []
+--- !u!114 &6990010474013134362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995463576123345032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41572903426ed0e458be4121d7faaffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHP: 200
+  hpBar: {fileID: 0}
+  bloodParticles: {fileID: 1773827754458446457, guid: 2ff47ae860aaee943a4c6f68360b24c5, type: 3}
+  damageText: {fileID: 5265834037048530160, guid: 062f13a3381b21649bcc67c642237d91, type: 3}
+--- !u!114 &6257912019607615551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995463576123345032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e83da6c62a2a194b849c62a0a04dbb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteracWithBoons
+  boonHandler: {fileID: 0}
 --- !u!95 &1584596684722248257
 Animator:
   serializedVersion: 7

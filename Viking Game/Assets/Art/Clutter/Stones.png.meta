@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: 2f81f095976b75f419160e4651996005
+guid: efa0c376be8172b4c8c9309c003c6341
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 256776428706985560
-    second: Viking_attack_0
+      213: 2667589067915142571
+    second: Stones_0
   - first:
-      213: -27351861867081009
-    second: Viking_attack_1
+      213: 6898035379108858973
+    second: Stones_1
   - first:
-      213: -5786371751854129462
-    second: Viking_attack_2
+      213: -8868248462342347919
+    second: Stones_2
   - first:
-      213: 5415118419026049435
-    second: Viking_attack_3
-  - first:
-      213: -1761171039948548438
-    second: Viking_attack_4
-  - first:
-      213: 8534389773266352890
-    second: Viking_attack_5
+      213: -1605707320451941170
+    second: Stones_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,133 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Viking_attack_0
+      name: Stones_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
+        x: 2
+        y: 3
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 856f5cb2dc0409300800000000000000
-      internalID: 256776428706985560
+      spriteID: ba52ccfaf1e250520800000000000000
+      internalID: 2667589067915142571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking_attack_1
+      name: Stones_1
       rect:
         serializedVersion: 2
-        x: 50
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
+        x: 3
+        y: 20
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc2977560a3de9ff0800000000000000
-      internalID: -27351861867081009
+      spriteID: d5c4cd341aebabf50800000000000000
+      internalID: 6898035379108858973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking_attack_2
+      name: Stones_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
+        x: 12
+        y: 17
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ace31689c8da2bfa0800000000000000
-      internalID: -5786371751854129462
+      spriteID: 1732e2e6207ade480800000000000000
+      internalID: -8868248462342347919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Viking_attack_3
+      name: Stones_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
+        x: 19
+        y: 4
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b99f8b6f28d562b40800000000000000
-      internalID: 5415118419026049435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking_attack_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aa6592f25401f87e0800000000000000
-      internalID: -1761171039948548438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Viking_attack_5
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 50
-        height: 52
-      alignment: 9
-      pivot: {x: 0.45, y: 0.4}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fbbb008cb8cc49448b347380e724e9b
-      internalID: 1681049328
+      spriteID: eccb73f03b167b9e0800000000000000
+      internalID: -1605707320451941170
       vertices: []
       indices: 
       edges: []
@@ -250,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ef3a63c714b82924882d77b0db9c5634
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -258,16 +208,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":50.0,"y":52.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Viking_attack_0: 256776428706985560
-      Viking_attack_1: -27351861867081009
-      Viking_attack_2: -5786371751854129462
-      Viking_attack_3: 5415118419026049435
-      Viking_attack_4: -1761171039948548438
-      Viking_attack_5: 1681049328
+      Stones_0: 2667589067915142571
+      Stones_1: 6898035379108858973
+      Stones_2: -8868248462342347919
+      Stones_3: -1605707320451941170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
