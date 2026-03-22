@@ -21,17 +21,23 @@ namespace KYSTER.Audio
         public AudioSource hurtSource;
         public AudioSource idleSource;
         public AudioSource runSource;
+        public AudioSource attackExtraSource;
+        public AudioSource walkExtraSource;
 
         [Header("Cooldowns (seconds)")]
         public float attackCooldown = 0.1f;
         public float hurtCooldown = 0.1f;
         public float idleCooldown = 0f;
         public float runCooldown = 0.1f;
+        public float attackExtraCooldown = 0.05f;
+        public float walkExtraCooldown = 0.05f;
 
         double lastAttackTime = -9999;
         double lastHurtTime = -9999;
         double lastIdleTime = -9999;
         double lastRunTime = -9999;
+        double lastAttackExtraTime = -9999;
+        double lastWalkExtraTime = -9999;
 
         AudioClip GetRandom(AudioClip[] clips)
         {
@@ -44,6 +50,15 @@ namespace KYSTER.Audio
             if (Time.unscaledTime - lastAttackTime < attackCooldown) return;
             lastAttackTime = Time.unscaledTime;
             PlayClip(GetRandom(attackClips), ref attackSource, "Attack");
+        }
+
+        // Extra attack-related sounds (e.g., swing whoosh vs impact)
+        public AudioClip[] attackExtraClips;
+        public void PlayAttackExtra()
+        {
+            if (Time.unscaledTime - lastAttackExtraTime < attackExtraCooldown) return;
+            lastAttackExtraTime = Time.unscaledTime;
+            PlayClip(GetRandom(attackExtraClips), ref attackExtraSource, "AttackExtra");
         }
 
         public void PlayHurt()
@@ -65,6 +80,15 @@ namespace KYSTER.Audio
             if (Time.unscaledTime - lastRunTime < runCooldown) return;
             lastRunTime = Time.unscaledTime;
             PlayClip(GetRandom(runClips), ref runSource, "Run");
+        }
+
+        // Extra walk-related sounds (e.g., footsteps that accompany run animation)
+        public AudioClip[] walkExtraClips;
+        public void PlayWalkExtra()
+        {
+            if (Time.unscaledTime - lastWalkExtraTime < walkExtraCooldown) return;
+            lastWalkExtraTime = Time.unscaledTime;
+            PlayClip(GetRandom(walkExtraClips), ref walkExtraSource, "WalkExtra");
         }
         void EnsureSourceExists(ref AudioSource src, string nameSuffix)
         {

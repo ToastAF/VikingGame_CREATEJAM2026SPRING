@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 698353710881723712}
   - component: {fileID: 6719701470587221852}
   - component: {fileID: 7764131896908153928}
+  - component: {fileID: 4401579609339641261}
   m_Layer: 6
   m_Name: Loki
   m_TagString: Enemy
@@ -289,3 +290,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4401579609339641261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225562852867793647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9501fc75115f14b92eb8ab950513d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KYSTER.Audio.EnemyAudio
+  attackClips:
+  - {fileID: 8300000, guid: e5e07d26ecef3c444a361daf52973aba, type: 3}
+  - {fileID: 8300000, guid: e4a11b886e3acce45bfdd6bdd3181f9b, type: 3}
+  - {fileID: 8300000, guid: 030bbb8a6fab5d947bfa3620d8efde72, type: 3}
+  hurtClips: []
+  idleClips:
+  - {fileID: 8300000, guid: 450b2ee1f45bd4a47a164f7d671bac5d, type: 3}
+  - {fileID: 8300000, guid: 8d8540e983bcea644b695b42a45faad2, type: 3}
+  - {fileID: 8300000, guid: 92b13b3fe4cc18c49905845745a65a8a, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: d0ec835e19c0a8046bf9399c91e6bb4c, type: 3}
+  volume: 1
+  playAtPosition: 1
+  attackSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  idleSource: {fileID: 0}
+  runSource: {fileID: 0}
+  attackExtraSource: {fileID: 0}
+  walkExtraSource: {fileID: 0}
+  attackCooldown: 0.1
+  hurtCooldown: 0.1
+  idleCooldown: 0
+  runCooldown: 0.1
+  attackExtraCooldown: 0.05
+  walkExtraCooldown: 0.05
+  attackExtraClips: []
+  walkExtraClips: []

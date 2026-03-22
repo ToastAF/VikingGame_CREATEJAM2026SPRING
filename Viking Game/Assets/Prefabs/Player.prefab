@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 6257912019607615551}
   - component: {fileID: 1584596684722248257}
   - component: {fileID: 1805611829830847195}
+  - component: {fileID: -7372105686128270853}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,6 +220,7 @@ MonoBehaviour:
   speed: 250
   cannotMove: 0
   movementVector: {x: 0, y: 0}
+  portalInteract: {fileID: 0}
 --- !u!114 &3360856307907595851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InteracWithBoons
   UICanvas: {fileID: 0}
   textObject: {fileID: 0}
+  thorLevelText: {fileID: 0}
+  freyaLevelText: {fileID: 0}
 --- !u!95 &1584596684722248257
 Animator:
   serializedVersion: 7
@@ -347,6 +351,41 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-7372105686128270853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995463576123345032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab9501fc75115f14b92eb8ab950513d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KYSTER.Audio.EnemyAudio
+  attackClips:
+  - {fileID: 8300000, guid: d5c12549332c56d40bd6d419f3d6fa98, type: 3}
+  - {fileID: 8300000, guid: f0cf4a75c627590498a5cbe6208ce93b, type: 3}
+  hurtClips: []
+  idleClips: []
+  runClips:
+  - {fileID: 8300000, guid: b5c935f383478754c8ddc32299f056b6, type: 3}
+  volume: 1
+  playAtPosition: 1
+  attackSource: {fileID: 0}
+  hurtSource: {fileID: 0}
+  idleSource: {fileID: 0}
+  runSource: {fileID: 0}
+  attackExtraSource: {fileID: 0}
+  walkExtraSource: {fileID: 0}
+  attackCooldown: 0.1
+  hurtCooldown: 0.1
+  idleCooldown: 0
+  runCooldown: 0.1
+  attackExtraCooldown: 0.05
+  walkExtraCooldown: 0.05
+  attackExtraClips: []
+  walkExtraClips: []
 --- !u!1 &3349026465834550965
 GameObject:
   m_ObjectHideFlags: 0
